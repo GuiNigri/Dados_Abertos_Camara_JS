@@ -1,0 +1,300 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body{
+    background-color: gainsboro;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 5px;
+    
+}
+
+#container{
+    display: flex;
+    width: 1205px;
+    flex-direction: column;
+}
+
+header{
+
+    width: 100%;
+    height: 650px;
+    background-size: contain;
+    background-image: url(image/camara.jpg);
+    opacity: 0.9;
+}
+
+#firstLine{
+    display: flex;
+    flex-direction: row;
+}
+
+nav ul{
+    margin-top: 15px;
+    display: flex;
+    flex-direction: row;
+}
+
+nav ul li a{
+    text-decoration: none;
+    color: white;
+    padding: 0 12px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+ul{
+    list-style: none;
+    padding: 0;
+    justify-content: flex-end;
+}
+
+#logo{
+    display: flex;
+    flex-direction: row;
+    margin: 50px 0px 0px 80px;
+    width: 100%;
+
+}
+
+#logo img{
+    width: 50px;
+    height: 50px;
+}
+
+#menu{
+    width: 100%;
+    justify-content: flex-end;
+    margin: 50px 100px 0px 0px;
+}
+
+#logo h2{
+    color: white;
+    margin: 15px;
+    font-size: 14px;
+}
+
+#apresentacao{
+    display: flex;
+    flex-direction: column;
+    margin: 8% 0;
+    align-items: center;
+    color: white;
+}
+
+#apresentacao a{
+    width: fit-content;
+    padding: 10px 30px;
+    background-color: midnightblue;
+    color: white;
+    margin: 20px 50%;
+    border-radius: 5px;
+    border: 0px;
+    text-decoration: none;
+}
+
+#apresentacao h2{
+font-size: 50px;
+margin-bottom: 0px;
+text-shadow: black 3px 4px 3px;
+}
+
+#apresentacao h3{
+    font-size: 15px;
+    margin-top: 5px;
+    text-shadow: black 2px 3px 2px;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+}
+
+section{
+    text-align: center;
+}
+
+
+section h2{
+    margin-top: 80px;
+    font-size: 18px;
+    color: midnightblue;
+}
+
+input, textarea{
+    width: 30%;
+    padding: 10px 5px;
+    margin-bottom: 10px;
+}
+
+button{
+    width: 31%;
+    padding: 10px 5px;
+    border-radius: 5px;
+    border: none;
+    background-color: midnightblue;
+    color: white;
+    cursor: pointer;
+
+}
+
+.box{
+    font-family: 'Karla', sans-serif;
+    font-size: 16px;
+    padding-bottom: 15px;
+    font-weight: 600;
+}
+
+.data{
+    border: 5px solid white;
+    border-radius: 10px;
+    background-color: white;
+    margin: 10px 20px;
+    width: 200px;
+}
+
+#dadosDeputies, #dadosParties, #dadosNoticias, #contatoData{
+    display: inline-flex;
+    margin-top: 25px;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
+
+.data img{
+    width: 100%;
+    height: 100%;
+}
+
+.deputie-img, .partie-img{
+    height: 250px;
+    width: 200px;
+    margin-bottom: 15px;
+}
+
+#deputados #dadosDeputies .data .deputie-info h2, #deputados #dadosDeputies .data .deputie-info h3,#partidos #dadosParties .data .partie-info h2{
+    margin: 0;
+    font-size: 18px;
+    color: black;
+}
+
+.pagination{
+    margin-top: 20px;
+}
+
+#fotoNoticia, #infoNoticia, #formContato, #infoContato {
+    width: 50%;
+}
+
+#fotoNoticia img{
+    width: 75%;
+    height: 100%;
+    max-width: 100%;
+	-moz-transition: all 0.3s;
+	-webkit-transition: all 0.3s;
+	transition: all 0.3s;
+    border-radius: 5px;
+
+}
+
+#fotoNoticia img:hover {
+	-moz-transform: scale(1.1);
+	-webkit-transform: scale(1.1);
+	transform: scale(1.1);
+}
+
+#infoNoticia p, #infoContato p{
+    text-align: justify;
+}
+
+#infoNoticia button, #formContato button{
+    width: 93%;
+    margin-top: 15px;
+    padding: 15px 10px;
+}
+
+#infoNoticia h3, #infoContato h3{
+    margin-top: 0;
+}
+
+#eventos #events {
+    padding: 12px 6px;
+}
+
+#eventos button {
+    padding: 16px;
+    width: auto;
+}
+
+.dadosEvents {
+    display: inline-flex;
+    justify-content: center;
+    margin: 20px 50px;
+    background-color: white;
+    padding: 10px 15px;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.firstInformation {
+    margin: 20px 30px;
+    text-align: start;
+    margin-left: 0;
+    justify-content: center;
+}
+
+.secoundInformation {
+    margin: 20px 30px;
+    text-align: justify;
+    margin-top: 0;
+}
+
+.linha-vertical {
+    height: 150px;
+    border-left: 2px solid;
+  }
+
+.uppercase{
+    text-transform: uppercase;
+}
+
+#formContato input, #formContato textarea {
+    width: 90%;
+    border-radius: 3px;
+    border: 5px gainsboro;
+}
+
+#contatoData{
+    margin: 20px 50px;
+    padding: 10px 15px;
+}
+
+#infoContato h3{
+    text-align: start;
+}
+
+footer{
+    display: flex;
+    flex-direction: row;
+    background-color: midnightblue;
+    color: white;
+    padding: 5px;
+    text-align: center;
+    width: 100%;
+}
+
+#infoFooter{
+    width: 90%;
+}
+
+#buttonFooter{
+    width: 10%;
+    align-self: center;
+}
+
+#buttonFooter a{
+    color: darkgray;
+}

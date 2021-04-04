@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=">
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous"></script>
+    <link href="./css/all.css" rel="stylesheet">
+    <title>Dados Abertos</title>
+</head>
+<body>
+    <div id="container">
+        <header>
+            <div id="firstLine">
+                <div id="logo">
+                    <img src="./image/logo.png" alt="Logo Camara dos deputados">
+                    <h2>Dados Abertos</h2>
+                </div>
+                <div id="menu">
+                    <nav>
+                        <ul>
+                            <li><a href="#firstLine" title="Pagina Inicial"> INICIO </a></li>
+                            <li><a href="#deputados" title="Deputados"> DEPUTADOS </a></li>
+                            <li><a href="#partidos" title="Partidos"> PARTIDOS </a></li>
+                            <li><a href="#noticias" title="Noticias"> NOTICIAS </a></li>
+                            <li><a href="#eventos" title="Eventos"> EVENTOS </a></li>
+                            <li><a href="#contato" title="Contato"> CONTATO </a></li>
+                        </ul>   
+                    </nav>
+                </div>
+            </div>
+
+            <div id="apresentacao">
+                <h2 class="uppercase">Quem são os deputados</h2>
+                <h3>Conheça os deputados, seus partidos e legislaturas</h3>
+                <a href="#deputados">Deputados</a>
+            </div>
+        </header>
+        <main>
+            <section id="deputados">
+                <h2>DEPUTADOS</h2>
+                <h3>Consulte aqui os dados da legislatura atual:</h3>
+                <form>
+                    <div>
+                    <input type="text" placeholder="Nome do Deputado" id="deputieName"/>
+                    </div>
+                    <div>
+                        <button onclick="return search(deputiesMap, apiDeputiesData,'deputieName','dadosDeputies')"><i class="fas fa-search"></i> Buscar</button>
+                    </div>       
+                </form>
+                <div id="dadosDeputies">
+  
+                </div>
+                <div class="pagination">
+                    <button onclick="return assembleInformations(false, deputiesMap, apiDeputiesData, 'dadosDeputies')"><i class="fas fa-sync-alt"></i> Carregar mais</button>
+                </div>
+            </section>
+            <section id="partidos">
+                <h2>PARTIDOS</h2>
+                <h3>Consulte aqui os Partidos existentes:</h3>
+                <form>
+                    <div>
+                    <input type="text" placeholder="Nome do Partido" id="politicalParties"/>
+                    </div>
+                    <div>
+                        <button onclick="return search(politicalPartiesMap, apiPoliticalPartiesData,'politicalParties','dadosParties')"><i class="fas fa-search"></i> Buscar</button>
+                    </div>       
+                </form>
+                <div id="dadosParties">
+  
+                </div>
+                <div class="pagination">
+                    <button onclick="return assembleInformations(false, politicalPartiesMap, apiPoliticalPartiesData,'dadosParties')"><i class="fas fa-sync-alt"></i> Carregar mais</button>
+                </div>
+            </section>
+            <section id="noticias">
+                <h2>NOTÍCIAS</h2>
+                <div id="dadosNoticias">
+                    <div id="fotoNoticia">
+                        <img src="https://www.camara.leg.br/midias/image/2021/03/img20210316144545040-768x503.jpg" alt="imagem principal das noticias"/>
+                    </div>
+                    <div id="infoNoticia">
+                        <h3>Câmara pode votar nesta semana projetos que ajudem no combate imediato à pandemia
+                        </h3>
+                        <p>A Câmara dos Deputados pode votar nesta semana projetos que ajudem no
+                             combate imediato à crise de saúde pública provocada pelo aumento de casos
+                              e mortes por Covid-19. Essa prioridade foi anunciada pelo presidente da
+                               Casa, Arthur Lira (PP-AL), que definirá a pauta desta terça-feira (30)
+                                após reunião de líderes partidários marcada para as 9 horas do mesmo
+                                 dia. A sessão do Plenário terá início às 15 horas.</p>
+                        <div>
+                        <p>Fonte: Agência Câmara de Notícias / 29/03/2021 - 17:55</p>
+                        </div>
+                        <div>
+                            <form action="https://www.camara.leg.br/noticias" target="_blank">
+                                <button type="submit">VEJA MAIS NOTÍCIAS</button>
+                            </form>
+                        </div>     
+                    </div>
+                </div>
+            </section>
+            <section id="eventos">
+                <h2>EVENTOS</h2>
+                <h3>Consulte aqui os Eventos agendados:</h3>
+                <form>
+                    <div>
+                    <input type="text" placeholder="Descrição do evento" id="eventsInput"/>
+                    <input type="date" id="eventsData"/>
+                    <button onclick="return searchEvents()"><i class="fas fa-search"></i> Buscar</button>
+                    </div>     
+                </form>
+                <div id="todosDadosEvents">
+                </div>
+                <div class="pagination">
+                    <button onclick="return assembleInformations(false, eventsMap,apiEventsData,'todosDadosEvents')"><i class="fas fa-sync-alt"></i> Carregar mais</button>
+                </div>
+            </section>
+            <section id="contato">
+                <h2>CONTATO</h2>
+                <div id="contatoData">
+                    <div id="formContato">
+                        <form action="#contato">
+                            <input type="text" placeholder="Nome" required>
+                            <input type="email" placeholder="Email" required>
+                            <textarea rows="8" placeholder="Mensagem" required></textarea>
+                            <button>Enviar</button>
+                        </form>
+                    </div>
+                    <div id="infoContato">
+                        <h3>Fale Conosco</h3>
+                        <p>Deixe-nos suas criticas, elogios e sugestoes!</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                             Curabitur condimentum, ante quis iaculis fermentum, libero ligula
+                             nenatis velit, id imperdiet est eros vel ipsum. Morbi condimentum 
+                             convallis elit. Nullam et.
+                        </p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                            Curabitur condimentum, ante quis iaculis fermentum, libero ligula
+                            nenatis velit, id imperdiet est eros vel ipsum. Morbi condimentum 
+                            convallis elit. Nullam et.
+                        </p>  
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <footer>
+        <div id="infoFooter">
+            <p> Instituto Infnet - Assessment Interface Web</p>
+        </div>     
+        <div id="buttonFooter">
+            <a href="#container"><i class="fas fa-arrow-up"></i></a>
+        </div>     
+    </footer>
+    <script src="main.js"></script>
+</body>
+</html>
