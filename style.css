@@ -46,6 +46,10 @@ nav ul li a{
     font-weight: 700;
 }
 
+nav ul li a:hover{
+    color: gainsboro;
+}
+
 ul{
     list-style: none;
     padding: 0;
@@ -128,6 +132,9 @@ input, textarea{
     width: 30%;
     padding: 10px 5px;
     margin-bottom: 10px;
+    border-radius: 3px;
+    border:solid;
+    border-width: thin;
 }
 
 button{
@@ -298,3 +305,57 @@ footer{
 #buttonFooter a{
     color: darkgray;
 }
+
+@media (max-width: 500px) {
+    body{
+        display: block;
+    }
+    #dadosDeputies{
+        flex-wrap: wrap;
+    }
+    .data{
+        width: 40%;
+    }
+    .data .deputie-img, .partie-img{
+        margin: 5px auto;
+    }
+
+    #dadosNoticias, #contatoData{
+        display: block;
+    }
+
+    #dadosNoticias #fotoNoticia, #contatoData #formContato{
+        margin: 0 auto;
+    }
+
+    #dadosNoticias #infoNoticia, #contatoData #infoContato{
+        margin: 0 auto;
+        margin-top: 30px;
+        text-align-last: center;
+    }
+
+    img{
+      width: 100vw;
+    }
+
+    #firstLine {
+        flex-direction: column;
+        display: flex;
+    }
+
+    #logo {
+        align-items: center;
+        margin: 0;
+        margin-top: 30px;
+        flex-direction: column;
+    }
+
+    ul{
+        justify-content: center;
+    }
+
+    nav ul li a{
+        font-size: 20px;
+    }
+
+  }
